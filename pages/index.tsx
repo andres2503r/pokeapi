@@ -11,7 +11,10 @@ const pokemonURL = 'http://192.168.0.15:5002/api/pokemon'
 const Home = () => {
 
   const [apidata, setapidata] = useState<IrootObject>({
-    result: [] 
+    result: [],
+    key: 0, 
+    type: '', 
+    props:undefined 
   })
 
   const getdata = async () => {
@@ -20,7 +23,10 @@ const Home = () => {
     .then((data) => {
       console.log(data)
       setapidata({
-        result: data.result as Iresult[]
+        result: data.result as Iresult[],
+        key: 0, 
+        type: '', 
+        props:undefined
       })
     })
     .catch((error) => {
@@ -34,8 +40,8 @@ const Home = () => {
   return (
     
     <div>
-      <Page data={apidata.result} />
-      <h1>hola</h1>
+      <Page data={apidata.result} key={0} type={''} props={undefined} />
+      <h1></h1>
     </div>
   );
 }

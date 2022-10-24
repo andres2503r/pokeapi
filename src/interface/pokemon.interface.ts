@@ -1,5 +1,8 @@
 export interface IrootObject {
   result: Iresult[];
+  key: number
+  type: string,
+  props: any
     
 }
      
