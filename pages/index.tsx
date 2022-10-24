@@ -1,7 +1,8 @@
-import type { NextPage } from 'next'
-import { FC, useEffect, useState } from 'react';
-import { Iresult, IrootObject } from '../src/interface/pokemon.interface';
-import { Page } from '../src/pages/principal-page/primary.component';
+import { useEffect, useState } from 'react';
+
+import { Iresult, IrootObject } from '../src/interface/pokemon.interface'           ;
+import { Page                 } from '../src/pages/principal-page/primary.component';
+import styles from '../src/styles/style.module.scss'
 
 
 
@@ -27,10 +28,13 @@ const Home = () => {
         key: 0, 
         type: '', 
         props:undefined
+
       })
+
     })
     .catch((error) => {
       console.log('error', error);
+
     })
   } 
   useEffect(() => {
@@ -38,11 +42,38 @@ const Home = () => {
   }, [])
 
   return (
+
+    <>
+      <div className={styles.container} >
+
+        <div className={styles.bar} >
+          <div className={styles.title} >
+            pokedex
+          </div>
+
+          <div>
+            <input type="text" placeholder="Buscar..." className={styles.inputText} />
+          </div>
+        </div>
+
+        <div className={styles.secondContainer} >
+          
+          <div className={styles.list} >
+            <Page data={apidata.result} key={0} type={''} props={undefined} />
+          </div>
+
+          <div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </>
     
-    <div>
-      <Page data={apidata.result} key={0} type={''} props={undefined} />
-      <h1></h1>
-    </div>
+    // <div>
+    //   <Page data={apidata.result} key={0} type={''} props={undefined} />
+    // </div>
   );
 }
   
