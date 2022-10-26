@@ -3,7 +3,7 @@ export interface IrootObject {
   key: number
   type: string,
   props: any
-    
+  status: boolean  
 }
      
 export interface Iresult {

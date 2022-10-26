@@ -15,7 +15,9 @@ const Home = () => {
     result: [],
     key: 0, 
     type: '', 
-    props:undefined 
+    props:undefined,
+    status: false
+
   })
 
   const getdata = async () => {
@@ -27,7 +29,8 @@ const Home = () => {
         result: data.result as Iresult[],
         key: 0, 
         type: '', 
-        props:undefined
+        props:undefined,
+        status: true
 
       })
 
@@ -41,6 +44,18 @@ const Home = () => {
     getdata();
   }, [])
 
+  const readPokemon = (data: Iresult) => {
+
+    console.log(data, 'read pokemon success');
+
+    return (
+      <>
+        <h1>{data.name}</h1>
+      </>
+    )
+    
+  }
+
   return (
 
     <>
@@ -50,22 +65,23 @@ const Home = () => {
           <div className={styles.title} >
             pokedex
           </div>
-
           <div>
             <input type="text" placeholder="Buscar..." className={styles.inputText} />
           </div>
         </div>
 
         <div className={styles.secondContainer} >
-          
           <div className={styles.list} >
-            <Page data={apidata.result} key={0} type={''} props={undefined} />
+            <Page data={apidata.result} key={0} type={''} props={undefined} pokemondetails={readPokemon} />
           </div>
 
-          <div>
+          <div className={styles.containerCard} >
+            <div className={styles.containerBackgroup} />
 
+            <div className={styles.card} >
+              
+            </div>
           </div>
-
         </div>
 
       </div>
